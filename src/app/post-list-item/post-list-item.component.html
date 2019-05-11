@@ -1,0 +1,18 @@
+<li [ngClass]="{'col-sm-12 list-group-item': true,
+                'list-group-item-success': post.loveIts > 0,
+                'list-group-item-danger': post.loveIts < 0}">
+    <h3>
+        {{post.title}}
+        <span class="pull-right" style="color: #899296; font-size: medium">{{post.created_at | date:'short'}}</span>
+    </h3>
+    <p>{{post.content}}</p>
+    <button type="button" class="btn btn-primary" (click)="loveIts('yes')" >
+        <span class="glyphicon glyphicon-thumbs-up"></span> love it
+        <span *ngIf="post.loveIts > 0">({{post.loveIts}})</span>
+    </button> &nbsp;
+    <button type="button" class="btn btn-danger" (click)="loveIts('no')" >
+        <span class="glyphicon glyphicon-thumbs-down"></span> don't love it
+        <span *ngIf="post.loveIts < 0">({{post.loveIts}})</span>
+    </button>
+</li>
+
